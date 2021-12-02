@@ -1,4 +1,4 @@
-package n.nikitins.maze.simple_generator.services.dao;
+package n.nikitins.maze.simple_generator.models.level;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -8,7 +8,7 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import n.nikitins.maze.simple_generator.models.Level;
+import n.nikitins.maze.simple_generator.models.level.Level;
 
 @Dao
 public interface LevelDao {

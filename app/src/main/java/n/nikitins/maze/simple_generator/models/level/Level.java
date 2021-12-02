@@ -1,4 +1,4 @@
-package n.nikitins.maze.simple_generator.models;
+package n.nikitins.maze.simple_generator.models.level;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

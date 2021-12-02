@@ -1,4 +1,4 @@
-package n.nikitins.maze.simple_generator.models;
+package n.nikitins.maze.simple_generator.models.quickGame;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
