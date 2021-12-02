@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -17,7 +17,7 @@
 	        android:layout_width="0dp"
 	        android:layout_height="wrap_content"
 	        android:layout_weight="0.5"
-	        android:text="LEVEL"
+	        android:text="@string/level"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	    <TextView
@@ -26,7 +26,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_weight="0.25"
 	        android:gravity="end"
-	        android:text="TIME"
+	        android:text="@string/time"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	    <TextView
@@ -35,17 +35,16 @@
 	        android:layout_height="wrap_content"
 	        android:layout_weight="0.25"
 	        android:gravity="end"
-	        android:text="MOVES"
+	        android:text="@string/moves"
 	        android:textAppearance="?android:attr/textAppearanceMedium" />
 	    
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/recordsLevelsTab"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.7">
-        
-    </ListView>
+	<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/recordsLevelsList"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="0.7"
+		tools:listitem="@layout/records_list_item" />
    
     </LinearLayout>

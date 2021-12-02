@@ -1,9 +1,13 @@
 package n.nikitins.maze.simple_generator;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTabHost;
 import android.view.Window;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTabHost;
+
+import n.nikitins.maze.simple_generator.ui.fragments.RecordsLevelsFragment;
+import n.nikitins.maze.simple_generator.ui.fragments.RecordsQuickGameFragment;
 
 public class RecordsTabFragmentActivity extends FragmentActivity {
 	
@@ -26,7 +30,5 @@ public class RecordsTabFragmentActivity extends FragmentActivity {
             RecordsLevelsFragment.class, null);
         		
     }
-		
-	
 
 }

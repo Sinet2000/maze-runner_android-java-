@@ -6,29 +6,29 @@
     android:padding="8dp" >
 
     <TextView
-        android:id="@+id/recordsLevelTV"
+        android:id="@+id/recordsLevelTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:text="LEVEL N"
+        android:text="@string/level_n"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/recordsTimeTV"
+        android:id="@+id/recordsTimeTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.3"
         android:gravity="end"
-        android:text="00:00:00"
+        android:text="@string/time_default"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/recordsMovesTV"
+        android:id="@+id/recordsMovesTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
         android:gravity="end"
-        android:text="3000"
+        android:text="@string/moves_default"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </LinearLayout>

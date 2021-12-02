@@ -13,9 +13,24 @@ public class Level {
     @ColumnInfo(name = "level")
     public int level;
 
+    @ColumnInfo(name = "completed")
+    public String completed;
+
     @ColumnInfo(name = "time_taken")
     public String timeTaken;
 
     @ColumnInfo(name = "moves_taken")
     public int movesTaken;
+
+    @ColumnInfo(name = "columns")
+    public int columns;
+
+    @ColumnInfo(name = "dest_row")
+    public int destRow;
+
+    @ColumnInfo(name = "dest_column")
+    public int destCol;
+
+    @ColumnInfo(name = "max_distance")
+    public int maxDistance;
 }

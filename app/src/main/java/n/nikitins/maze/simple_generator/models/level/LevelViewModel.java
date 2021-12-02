@@ -19,11 +19,11 @@ public class LevelViewModel extends AndroidViewModel {
         mAllLevels = mLevelRepository.getAllLevels();
     }
 
-    LiveData<List<Level>> getAllLevels() {
+    public LiveData<List<Level>> getAllLevels() {
         return mAllLevels;
     }
 
-    void insert(Level level) {
+    public void insert(Level level) {
         mLevelRepository.insert(level);
     }
 }

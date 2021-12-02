@@ -11,48 +11,48 @@
     		>
 	
 	        <TextView
-	            android:id="@+id/recordsQGLevelTV"
+	            android:id="@+id/recordsQuickGamesLevel"
 	            android:layout_width="0dp"
 	            android:layout_weight="0.25"
 	            android:layout_height="wrap_content"
 	            android:gravity="center"
-	            android:text="Level"
+	            android:text="@string/level"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	        <TextView
-	            android:id="@+id/recordsQGgamesPlayedTV"
+	            android:id="@+id/recordsQuickGamesPlayedTextView"
 	            android:layout_width="0dp"
 	            android:layout_weight="0.2"
 	            android:layout_height="wrap_content"
 	            android:gravity="center"
-	            android:text="Played"
+	            android:text="@string/played"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	        <TextView
-	            android:id="@+id/recordsQGwinsTV"
+	            android:id="@+id/recordsQuickGamesWinTextView"
 	            android:layout_width="0dp"
 	            android:layout_weight="0.2"
 	            android:layout_height="wrap_content"
 	            android:gravity="center"
-	            android:text="Wins"
+	            android:text="@string/wins"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	        <TextView
-	            android:id="@+id/recordsQGlosesTV"
+	            android:id="@+id/recordsQuickGamesLosesTextView"
 	            android:layout_width="0dp"
 	            android:layout_weight="0.2"
 	            android:layout_height="wrap_content"
 	            android:gravity="center"
-	            android:text="Loses"
+	            android:text="@string/loses"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	        
 	        <TextView
-	            android:id="@+id/recordsQGfastestTimeTV"
+	            android:id="@+id/recordsQuickGamesFastestTextView"
 	            android:layout_width="0dp"
 	            android:layout_weight="0.2"
 	            android:layout_height="wrap_content"
 	            android:gravity="center"
-	            android:text="Fastest Win"
+	            android:text="@string/fastest_win"
 	            android:textAppearance="?android:attr/textAppearanceMedium" />
 	        
         </LinearLayout>

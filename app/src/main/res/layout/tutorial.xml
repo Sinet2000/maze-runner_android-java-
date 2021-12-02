@@ -5,22 +5,22 @@
     >
 	<LinearLayout 
 	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
+	    android:layout_height="wrap_content"
 	    android:orientation="vertical" 
 	    android:padding="8dp">
 	
 	    <TextView
-	        android:id="@+id/textView1"
+	        android:id="@+id/instructionStart"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:padding="5dp"
-	        android:text="You start at the green square in the top left corner"
+	        android:text="@string/instruction_start"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 	
 	    <ImageView
-	        android:id="@+id/imageView1"
+	        android:id="@+id/imageStart"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
@@ -28,17 +28,17 @@
 	        android:src="@drawable/start_location" />
 
 	    <TextView
-	        android:id="@+id/textView2"
+	        android:id="@+id/instruction_target"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:padding="5dp"
-	        android:text="You have to reach the red square within the given number of moves"
+	        android:text="@string/instruction_target"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	    <ImageView
-	        android:id="@+id/imageView2"
+	        android:id="@+id/imageEnd"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
@@ -52,11 +52,11 @@
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:padding="5dp"
-	        android:text="Click the buttons at the bottom to move in that direction"
+	        android:text="@string/instruction_navigation"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	    <ImageView
-	        android:id="@+id/imageView3"
+	        android:id="@+id/imageControls"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
@@ -64,17 +64,17 @@
 	        android:src="@drawable/click_to_move" />
 
 	    <TextView
-	        android:id="@+id/textView4"
+	        android:id="@+id/instructionMainTarget"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:padding="5dp"
-	        android:text="Reach the red square to end the game"
+	        android:text="@string/instruction_main_target"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	    <ImageView
-	        android:id="@+id/imageView4"
+	        android:id="@+id/imageLastStep"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
@@ -82,17 +82,17 @@
 	        android:src="@drawable/touch_end" />
 
 	    <TextView
-	        android:id="@+id/textView5"
+	        android:id="@+id/instructionTimeLimited"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:padding="5dp"
-	        android:text="Remember you have only limited moves to make and limited time"
+	        android:text="@string/instruction_time_limited"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	    <ImageView
-	        android:id="@+id/imageView5"
+	        android:id="@+id/instructionMovesLeft"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:padding = "8dp"
@@ -101,7 +101,7 @@
 	        android:src="@drawable/moves_made" />
 	    
 	    <ImageView
-	        android:id="@+id/imageView7"
+	        android:id="@+id/instructionTime"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:padding = "8dp"
@@ -110,7 +110,7 @@
 	        android:src="@drawable/time_left" />
 
 	    <ImageView
-	        android:id="@+id/imageView6"
+	        android:id="@+id/instructionResult"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:padding = "8dp"
@@ -125,7 +125,7 @@
 	        android:layout_gravity="center"
 	        android:gravity="center"
 	        android:padding="5dp"
-	        android:text="HAVE FUN" />
+	        android:text="@string/have_fun" />
 			
 	</LinearLayout>
 

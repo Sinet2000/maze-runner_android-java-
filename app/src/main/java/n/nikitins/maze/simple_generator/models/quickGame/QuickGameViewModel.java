@@ -22,11 +22,11 @@ public class QuickGameViewModel extends AndroidViewModel {
         mAllQuickGames = mQuickGameRepository.getAllQuickGames();
     }
 
-    LiveData<List<QuickGame>> getAllQuickGames() {
+    public LiveData<List<QuickGame>> getAllQuickGames() {
         return mAllQuickGames;
     }
 
-    void insert(QuickGame quickGame) {
+    public void insert(QuickGame quickGame) {
         mQuickGameRepository.insert(quickGame);
     }
 }
