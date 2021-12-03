@@ -1,22 +1,10 @@
 package n.nikitins.maze.simple_generator;
 
-import java.util.Timer;
-
-import java.util.TimerTask;
-
-//import com.google.android.gms.internal.db;
-
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Paint.Style;
-import android.graphics.Rect;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.RectShape;
-import android.os.Build;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -32,17 +20,23 @@ import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.graphics.PorterDuff;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import n.nikitins.maze.simple_generator.models.quickGame.QuickGameViewModel;
+
+//import com.google.android.gms.internal.db;
 
 public class GameActivity extends Activity {
-	
+
+	private QuickGameViewModel quickGameViewModel;
+
 	private int height;
 	private int width;
 	int mode;
@@ -181,7 +175,7 @@ public class GameActivity extends Activity {
         mainLayout.addView(botMenu);
         
         //create middle game view
-        final GameView gameView = new GameView(this, height, width,moves,level,mode);
+        final GameView gameView = new GameView(this, height, width,moves,level,mode, quickGameViewModel);
         RelativeLayout.LayoutParams gameViewParams = new RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         if(mode!=-1)
         	gameViewParams.addRule(RelativeLayout.BELOW, topMenu.getId());

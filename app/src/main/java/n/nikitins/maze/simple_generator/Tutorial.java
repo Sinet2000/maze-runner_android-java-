@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Window;
 
 public class Tutorial extends Activity{
-
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

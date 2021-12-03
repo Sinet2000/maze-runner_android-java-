@@ -7,9 +7,6 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import n.nikitins.maze.simple_generator.models.level.Level;
-import n.nikitins.maze.simple_generator.models.level.LevelRepository;
-
 public class QuickGameViewModel extends AndroidViewModel {
 
     private QuickGameRepository mQuickGameRepository;
@@ -28,5 +25,21 @@ public class QuickGameViewModel extends AndroidViewModel {
 
     public void insert(QuickGame quickGame) {
         mQuickGameRepository.insert(quickGame);
+    }
+
+    public void update(QuickGame quickGame) {
+        mQuickGameRepository.update(quickGame);
+    }
+
+    public QuickGame getQuickGameByLevel(int level) {
+        return mQuickGameRepository.getQuickGameByLevel(level);
+    }
+
+    public void updateQuickGameStats(int level, int result , String timeTaken) {
+        QuickGame previousResult = mQuickGameRepository.getQuickGameByLevel(level);
+
+        if ((timeTaken.compareTo(previousResult.fastestWin) < 0 || previousResult.fastestWin.equals("") ) && result == 1){
+            previousResult.fastestWin = timeTaken;
+        }
     }
 }

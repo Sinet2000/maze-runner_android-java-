@@ -1,5 +1,6 @@
 package n.nikitins.maze.simple_generator.models.quickGame;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -23,4 +24,12 @@ public class QuickGame {
 
     @ColumnInfo(name = "fastest_win")
     public String fastestWin;
+
+    public QuickGame(int level, int totalWins, int gamesPlayed, int totalLoses, @NonNull String fastestWin){
+        this.level = level;
+        this.totalLoses = totalLoses;
+        this.totalWins = totalWins;
+        this.gamesPlayed = gamesPlayed;
+        this.fastestWin = fastestWin;
+    }
 }

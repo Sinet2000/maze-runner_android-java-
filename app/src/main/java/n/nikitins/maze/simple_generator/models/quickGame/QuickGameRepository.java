@@ -29,4 +29,14 @@ public class QuickGameRepository {
             mQuickGameDao.insert(quickGame);
         });
     }
+
+    void update(QuickGame quickGame) {
+        MazeRunnerDatabase.databaseWriteExecutor.execute(() -> {
+            mQuickGameDao.update(quickGame);
+        });
+    }
+
+    QuickGame getQuickGameByLevel(int level) {
+        return mQuickGameDao.getRecordByLvl(level);
+    }
 }

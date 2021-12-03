@@ -1,8 +1,5 @@
 package n.nikitins.maze.simple_generator.ui.fragments;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +10,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import n.nikitins.maze.simple_generator.R;
-import n.nikitins.maze.simple_generator.models.level.LevelViewModel;
 import n.nikitins.maze.simple_generator.models.quickGame.QuickGameViewModel;
-import n.nikitins.maze.simple_generator.ui.adapters.RecordsLevelListAdapter;
 import n.nikitins.maze.simple_generator.ui.adapters.RecordsQuickGameListAdapter;
 
 public class RecordsQuickGameFragment extends Fragment {

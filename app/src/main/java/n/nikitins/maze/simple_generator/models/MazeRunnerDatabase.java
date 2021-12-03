@@ -8,17 +8,17 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import n.nikitins.maze.simple_generator.models.level.Level;
-import n.nikitins.maze.simple_generator.models.level.LevelDao;
+import n.nikitins.maze.simple_generator.models.quickGame.QuickGame;
 import n.nikitins.maze.simple_generator.models.quickGame.QuickGameDao;
 
-@Database(entities = {Level.class}, version = 1, exportSchema = false)
+@Database(entities = {QuickGame.class}, version = 1, exportSchema = false)
 public abstract class MazeRunnerDatabase extends RoomDatabase {
 
-    public abstract LevelDao levelDao();
     public abstract QuickGameDao quickGameDao();
 
     private static volatile MazeRunnerDatabase INSTANCE;
@@ -46,8 +46,11 @@ public abstract class MazeRunnerDatabase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
                 // If you want to start with more words, just add them.
-                LevelDao levelDao = INSTANCE.levelDao();
                 QuickGameDao quickGameDao = INSTANCE.quickGameDao();
+                quickGameDao.deleteAll();
+
+                List<QuickGame> quickGame = new ArrayList<QuickGame>();
+                QuickGame level1QuickGame = new QuickGame();
             });
         }
     };

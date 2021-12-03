@@ -6,9 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-import n.nikitins.maze.simple_generator.models.level.Level;
 import n.nikitins.maze.simple_generator.models.quickGame.QuickGame;
-import n.nikitins.maze.simple_generator.ui.viewHolders.RecordsLevelViewHolder;
 import n.nikitins.maze.simple_generator.ui.viewHolders.RecordsQuickGameViewHolder;
 
 public class RecordsQuickGameListAdapter extends ListAdapter<QuickGame, RecordsQuickGameViewHolder> {

@@ -1,17 +1,12 @@
 package n.nikitins.maze.simple_generator;
 
 
-import java.io.IOException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -20,40 +15,14 @@ import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 
-	
-	LevelsDB DB;
-	final static int DB_VERSION = 1;
-	final static String DB_NAME = "mazeDB";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
 		setContentView(R.layout.activity_main);
-		
-		
-		DB = new LevelsDB(getApplicationContext());
-		
-		//TODO
-		//remove this
-		//--------------
+
 		SharedPreferences prefs = getSharedPreferences("mazePrefs", Activity.MODE_PRIVATE);
-		int dbVersion = prefs.getInt("dbVersion", 0);
-		
-		if(dbVersion < DB_VERSION) {
-			getApplicationContext().deleteDatabase(DB_NAME);
-			SharedPreferences.Editor editor = prefs.edit();
-			editor.putInt("dbVersion", DB_VERSION);
-			editor.commit();
-		}
-		//--------------
-		
-		try {
-			DB.createDataBase();
-//			Log.d("db created","done");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 		Button quickGame = (Button) findViewById(R.id.quickGame);
 		final AlertDialog.Builder quickGameBuilder = new AlertDialog.Builder(this);
@@ -168,20 +137,6 @@ public class MainActivity extends Activity {
 			}
 		});
         
-        Button normalGame = (Button) findViewById(R.id.normalGame);
-        normalGame.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				Intent intent = new Intent(getApplicationContext(),LevelsList.class);
-				startActivity(intent);
-				
-			}
-		});
-        
-        
-        
         Button records = (Button) findViewById(R.id.records);
         records.setOnClickListener(new OnClickListener() {
 			
@@ -207,62 +162,6 @@ public class MainActivity extends Activity {
 		});
 		
 		final SharedPreferences mPreferences = getSharedPreferences("mazePrefs", Activity.MODE_PRIVATE);
-		final int rateAppCounter = mPreferences.getInt("rateAppCounter", 1);
-		
-		AlertDialog.Builder rateAppBuilder = new Builder(MainActivity.this);
-		
-		if(rateAppCounter != -1 && rateAppCounter%10 == 0) {
-			
-			
-			
-			rateAppBuilder.setTitle("RATE US").setMessage("Had fun? Would you like to rate the app?");
-			rateAppBuilder.setPositiveButton("Sure", new DialogInterface.OnClickListener() {
-	
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					
-					SharedPreferences.Editor editor = mPreferences.edit();
-					editor.putInt("rateAppCounter", -1);
-					editor.commit();
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.ggwp.maze")));
-					 
-				}
-			});
-			rateAppBuilder.setNeutralButton("Later", new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					SharedPreferences.Editor editor = mPreferences.edit();
-					editor.putInt("rateAppCounter", rateAppCounter+1);
-					editor.commit();
-				}
-			});
-			rateAppBuilder.setNegativeButton("Never", new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-				
-					SharedPreferences.Editor editor = mPreferences.edit();
-					editor.putInt("rateAppCounter", -1);
-					editor.commit();
-					
-				}
-			});
-			
-			AlertDialog dialog = rateAppBuilder.create();
-			dialog.setCancelable(true);
-			dialog.show();
-			
-		}
-		else if(rateAppCounter != -1){
-			SharedPreferences.Editor editor = mPreferences.edit();
-			editor.putInt("rateAppCounter", rateAppCounter+1);
-			editor.commit();
-		}
-		
-//		Log.d("rateAppCounter",rateAppCounter+"");
-		
-		
 	}
 	
 }

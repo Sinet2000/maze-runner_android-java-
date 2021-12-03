@@ -6,7 +6,6 @@ import android.view.Window;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTabHost;
 
-import n.nikitins.maze.simple_generator.ui.fragments.RecordsLevelsFragment;
 import n.nikitins.maze.simple_generator.ui.fragments.RecordsQuickGameFragment;
 
 public class RecordsTabFragmentActivity extends FragmentActivity {
@@ -26,8 +25,6 @@ public class RecordsTabFragmentActivity extends FragmentActivity {
 
         mTabHost.addTab(mTabHost.newTabSpec("QuickGame").setIndicator("Quick Game"),
             RecordsQuickGameFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("NormalGame").setIndicator("Normal Game"),
-            RecordsLevelsFragment.class, null);
         		
     }
 
