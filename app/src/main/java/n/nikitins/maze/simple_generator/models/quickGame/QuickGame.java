@@ -8,8 +8,6 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "quick_game_table")
 public class QuickGame {
     @PrimaryKey
-    public int uid;
-
     @ColumnInfo(name = "level")
     public int level;
 

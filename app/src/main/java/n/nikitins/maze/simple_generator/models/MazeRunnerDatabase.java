@@ -49,8 +49,12 @@ public abstract class MazeRunnerDatabase extends RoomDatabase {
                 QuickGameDao quickGameDao = INSTANCE.quickGameDao();
                 quickGameDao.deleteAll();
 
-                List<QuickGame> quickGame = new ArrayList<QuickGame>();
-                QuickGame level1QuickGame = new QuickGame();
+                List<QuickGame> quickGame = new ArrayList<QuickGame>() {};
+                quickGameDao.insert(new QuickGame(1, 0, 0, 0, ""));
+                quickGameDao.insert(new QuickGame(2, 0, 0, 0, ""));
+                quickGameDao.insert(new QuickGame(3, 0, 0, 0, ""));
+                quickGameDao.insert(new QuickGame(4, 0, 0, 0, ""));
+                quickGameDao.insert(new QuickGame(5, 0, 0, 0, ""));
             });
         }
     };
