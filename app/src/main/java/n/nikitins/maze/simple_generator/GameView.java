@@ -207,7 +207,7 @@ public class GameView extends View {
                 if (mazeColor[i][j]) {
                     paint.setColor(Color.parseColor("#006400"));
                     paint.setStyle(Paint.Style.FILL);
-                    canvas.drawRect(mazeX[i][j], mazeY[i][j], mazeX[i][j] + cellSize, mazeY[i][j] + cellSize, paint);
+                    canvas.drawRect(mazeX[i][j] +cellSize * 1/10, mazeY[i][j] + cellSize * 1/10 , mazeX[i][j] + cellSize * 9/10, mazeY[i][j] + cellSize*9/10, paint);
                 }
 
                 //if cell is destination color it red

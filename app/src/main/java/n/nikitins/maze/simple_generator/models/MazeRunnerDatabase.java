@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 import n.nikitins.maze.simple_generator.models.quickGame.QuickGame;
 import n.nikitins.maze.simple_generator.models.quickGame.QuickGameDao;
 
-@Database(entities = {QuickGame.class}, version = 1, exportSchema = false)
+@Database(entities = {QuickGame.class}, version = 1)
 public abstract class MazeRunnerDatabase extends RoomDatabase {
 
     public abstract QuickGameDao quickGameDao();
@@ -49,7 +49,8 @@ public abstract class MazeRunnerDatabase extends RoomDatabase {
                 QuickGameDao quickGameDao = INSTANCE.quickGameDao();
                 quickGameDao.deleteAll();
 
-                List<QuickGame> quickGame = new ArrayList<QuickGame>() {};
+                List<QuickGame> quickGame = new ArrayList<QuickGame>() {
+                };
                 quickGameDao.insert(new QuickGame(1, 0, 0, 0, ""));
                 quickGameDao.insert(new QuickGame(2, 0, 0, 0, ""));
                 quickGameDao.insert(new QuickGame(3, 0, 0, 0, ""));

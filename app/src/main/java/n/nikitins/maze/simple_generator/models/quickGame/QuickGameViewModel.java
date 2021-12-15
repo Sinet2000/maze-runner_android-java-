@@ -35,10 +35,10 @@ public class QuickGameViewModel extends AndroidViewModel {
         return mQuickGameRepository.getQuickGameByLevel(level);
     }
 
-    public void updateQuickGameStats(int level, int result , String timeTaken) {
+    public void updateQuickGameStats(int level, int result, String timeTaken) {
         QuickGame previousResult = mQuickGameRepository.getQuickGameByLevel(level);
 
-        if ((timeTaken.compareTo(previousResult.fastestWin) < 0 || previousResult.fastestWin.equals("") ) && result == 1){
+        if ((timeTaken.compareTo(previousResult.fastestWin) < 0 || previousResult.fastestWin.equals("")) && result == 1) {
             previousResult.fastestWin = timeTaken;
         }
     }
