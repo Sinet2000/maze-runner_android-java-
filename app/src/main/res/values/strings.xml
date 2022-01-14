@@ -16,10 +16,10 @@
     <string name="normal">NORMAL</string>
     <string name="records">RECORDS</string>
     <string name="practice">PRACTICE</string>
-    <string name="instruction_start">You start at the green square in the top left corner</string>
-    <string name="instruction_target">You have to reach the red square within the given number of moves</string>
+    <string name="instruction_start">Your player is Snoop Doog</string>
+    <string name="instruction_target">You have to reach the Santa Claus within the given number of moves</string>
     <string name="instruction_navigation">Click the buttons at the bottom to move in that direction</string>
-    <string name="instruction_main_target">Reach the red square to end the game</string>
+    <string name="instruction_main_target">Reach the Santa Claus to end the game</string>
     <string name="instruction_time_limited">Remember you have only limited moves to make and limited time</string>
     <string name="have_fun">HAVE FUN</string>
     <string-array name="difficulty_options">

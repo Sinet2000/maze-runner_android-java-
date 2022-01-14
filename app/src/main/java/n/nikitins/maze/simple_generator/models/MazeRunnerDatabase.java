@@ -29,7 +29,8 @@ public abstract class MazeRunnerDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (MazeRunnerDatabase.class) {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                        MazeRunnerDatabase.class, "maze_runner_database")
+                        MazeRunnerDatabase.class, "mazeRunner")
+                        .allowMainThreadQueries()
                         .addCallback(sRoomDatabaseCallback)
                         .build();
             }
@@ -45,16 +46,18 @@ public abstract class MazeRunnerDatabase extends RoomDatabase {
 
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
-                // If you want to start with more words, just add them.
                 QuickGameDao quickGameDao = INSTANCE.quickGameDao();
                 quickGameDao.deleteAll();
 
-                List<QuickGame> quickGame = new ArrayList<QuickGame>() {};
-                quickGameDao.insert(new QuickGame(1, 0, 0, 0, ""));
-                quickGameDao.insert(new QuickGame(2, 0, 0, 0, ""));
-                quickGameDao.insert(new QuickGame(3, 0, 0, 0, ""));
-                quickGameDao.insert(new QuickGame(4, 0, 0, 0, ""));
-                quickGameDao.insert(new QuickGame(5, 0, 0, 0, ""));
+                List<QuickGame> quickGames = new ArrayList<>();
+
+                quickGames.add(new QuickGame(1, 0, 0, 0, "00:00:00"));
+                quickGames.add(new QuickGame(2, 0, 0, 0, "00:00:00"));
+                quickGames.add(new QuickGame(3, 0, 0, 0, "00:00:00"));
+                quickGames.add(new QuickGame(4, 0, 0, 0, "00:00:00"));
+                quickGames.add(new QuickGame(5, 0, 0, 0, "00:00:00"));
+
+                quickGameDao.insertAll(quickGames);
             });
         }
     };

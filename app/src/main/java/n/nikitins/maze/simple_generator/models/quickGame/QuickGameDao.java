@@ -20,6 +20,9 @@ public interface QuickGameDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(QuickGame quickGame);
 
+    @Insert
+    void insertAll(List<QuickGame> quickGames);
+
     @Update
     void update(QuickGame quickGame);
 

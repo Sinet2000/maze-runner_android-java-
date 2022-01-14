@@ -356,7 +356,6 @@ public class MazeGenerator {
     }
 
     void createMazeKruskals() {
-
         Random rand = new Random();
         List<Walls> wallsList = new ArrayList<Walls>();
         int k = 1;

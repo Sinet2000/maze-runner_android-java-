@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -163,5 +164,4 @@ public class MainActivity extends Activity {
 		
 		final SharedPreferences mPreferences = getSharedPreferences("mazePrefs", Activity.MODE_PRIVATE);
 	}
-	
 }

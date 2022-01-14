@@ -8,11 +8,22 @@ import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import n.nikitins.maze.simple_generator.models.quickGame.QuickGame;
 import n.nikitins.maze.simple_generator.models.quickGame.QuickGameViewModel;
 
 //import android.util.Log;
@@ -62,6 +73,9 @@ public class GameView extends View {
     private float startX = 0f;
     private float startY = 0f;
 
+    private float startXMovement = 0f;
+    private float startYMovement = 0f;
+
     private float translateX = 0f;
     private float translateY = 0f;
 
@@ -71,7 +85,6 @@ public class GameView extends View {
     private boolean dragged = true;
 
     private boolean screenTouched = false;
-
 
     boolean GameOver;
 
@@ -175,6 +188,7 @@ public class GameView extends View {
 
 
     //Where all the drawing happens
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -203,17 +217,18 @@ public class GameView extends View {
 
             for (int j = 0; j < columns; j++) {
 
-                //if cell has been touched color it green
+                //draw hero
                 if (mazeColor[i][j]) {
-                    paint.setColor(Color.parseColor("#006400"));
-                    paint.setStyle(Paint.Style.FILL);
-                    canvas.drawRect(mazeX[i][j], mazeY[i][j], mazeX[i][j] + cellSize, mazeY[i][j] + cellSize, paint);
+                    Drawable d = getResources().getDrawable(R.drawable.rapper, null);
+                    d.setBounds(mazeX[i][j], mazeY[i][j], mazeX[i][j] + cellSize, mazeY[i][j] + cellSize);
+                    d.draw(canvas);
                 }
 
                 //if cell is destination color it red
                 if (i == mazeGenerator.dest_row && j == mazeGenerator.dest_col) {
-                    paint.setColor(Color.RED);
-                    canvas.drawRect(mazeX[i][j], mazeY[i][j], mazeX[i][j] + cellSize, mazeY[i][j] + cellSize, paint);
+                    Drawable d = getResources().getDrawable(R.drawable.santaclaus, null);
+                    d.setBounds(mazeX[i][j], mazeY[i][j], mazeX[i][j] + cellSize, mazeY[i][j] + cellSize);
+                    d.draw(canvas);
                 }
 
                 paint.setColor(Color.BLACK);
@@ -293,10 +308,9 @@ public class GameView extends View {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-
                     if (gameMode == 0) { //Quick Game
                         // DB.updateQuickGameStats(level, 1, timeTaken);
-                        quickGameViewModel.updateQuickGameStats(level, 1, timeTaken);
+                        updateQuickGameStats(level, 1, timeTaken);
                         Activity activity = (Activity) getContext();
                         activity.finish();
 
@@ -314,9 +328,8 @@ public class GameView extends View {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-
                     if (gameMode == 0) {
-                        quickGameViewModel.updateQuickGameStats(level, 0, timeTaken);
+                        updateQuickGameStats(level, 0, timeTaken);
 
                         Activity activity = (Activity) getContext();
                         activity.finish();
@@ -329,5 +342,67 @@ public class GameView extends View {
         AlertDialog dialog = builder.create();
         dialog.setCancelable(false);
         dialog.show();
+    }
+
+    @Override
+    public boolean onTouchEvent( MotionEvent event) {
+
+        float x = event.getX();
+        float y = event.getY();
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN: {
+                startXMovement = x;
+                startYMovement = y;
+                return true;
+            }
+            case MotionEvent.ACTION_UP: {
+                if (Math.abs((startYMovement - y)) > Math.abs((startXMovement - x) )) {
+                    if (y < startYMovement) {
+                        moveCell(0);
+                    } else {
+                        moveCell(2);
+                    }
+                } else {
+                    if (x > startXMovement) {
+                        moveCell(1);
+                    } else {
+                        moveCell(3);
+                    }
+                }
+                return true;
+            }
+            case MotionEvent.ACTION_MOVE: {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void updateQuickGameStats(int level, int result , String timeTaken) {
+        QuickGame previousResult = quickGameViewModel.getQuickGameByLevel(level);
+        Log.i("res:prev:time", previousResult.fastestWin);
+        Log.i("res:next:time", timeTaken);
+
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+            Date prevTimeResult = dateFormat.parse(previousResult.fastestWin);
+            Date newTime = dateFormat.parse(timeTaken);
+
+            if ((prevTimeResult.getTime() - newTime.getTime()) < 0 && result == 1){
+                previousResult.fastestWin = timeTaken;
+            }
+
+        } catch (ParseException e) {
+        }
+
+        if (result == 1) {
+            previousResult.totalWins += 1;
+        } else {
+            previousResult.totalLoses += 1;
+        }
+        previousResult.gamesPlayed++;
+
+        quickGameViewModel.update(previousResult);
     }
 }

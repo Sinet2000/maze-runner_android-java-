@@ -18,14 +18,14 @@
 	        android:padding="5dp"
 	        android:text="@string/instruction_start"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
-	
-	    <ImageView
-	        android:id="@+id/imageStart"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:gravity="center"
-	        android:src="@drawable/start_location" />
+
+		<ImageView
+			android:id="@+id/imageStart"
+			android:layout_width="88dp"
+			android:layout_height="65dp"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:src="@drawable/rapper" />
 
 	    <TextView
 	        android:id="@+id/instruction_target"
@@ -37,13 +37,13 @@
 	        android:text="@string/instruction_target"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-	    <ImageView
-	        android:id="@+id/imageEnd"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:gravity="center"
-	        android:src="@drawable/end_location" />
+		<ImageView
+			android:id="@+id/imageEnd"
+			android:layout_width="80dp"
+			android:layout_height="75dp"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:src="@drawable/santaclaus" />
 
 	    <TextView
 	        android:id="@+id/textView3"
@@ -72,14 +72,6 @@
 	        android:padding="5dp"
 	        android:text="@string/instruction_main_target"
 	        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-	    <ImageView
-	        android:id="@+id/imageLastStep"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:gravity="center"
-	        android:src="@drawable/touch_end" />
 
 	    <TextView
 	        android:id="@+id/instructionTimeLimited"
