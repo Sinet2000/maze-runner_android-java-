@@ -23,7 +23,7 @@ public class QuickGame {
     @ColumnInfo(name = "fastest_win")
     public String fastestWin;
 
-    public QuickGame(int level, int totalWins, int gamesPlayed, int totalLoses, @NonNull String fastestWin){
+    public QuickGame(int level, int totalWins, int gamesPlayed, int totalLoses, @NonNull String fastestWin) {
         this.level = level;
         this.totalLoses = totalLoses;
         this.totalWins = totalWins;
